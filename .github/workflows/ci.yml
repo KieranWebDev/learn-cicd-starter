@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 jobs:
-  formatting:
-    name: formatting
+  formatting-and-linting:
+    name: formatting-and-linting
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,9 @@ jobs:
 
       - name: Run go fmt
         run: test -z $(go fmt ./...)
+
+      - name: install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
 
   tests:
     name: tests
