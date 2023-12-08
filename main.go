@@ -27,6 +27,11 @@ type apiConfig struct {
 var staticFiles embed.FS
 
 func main() {
+
+	func unused() {
+		// unused funtion to test linter
+	}
+
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Printf("warning: assuming default configuration. .env unreadable: %v", err)
